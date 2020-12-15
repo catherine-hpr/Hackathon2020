@@ -11,11 +11,12 @@ class snow {
     this.y = -10;
     this.size = Math.random();
     this.xMove = Math.random() - 0.5;
+    this.speed = (Math.random() * 0.5) + 1;
   }
   
   snowDraw() {
-    this.y += 1
-    this.x += this.xMove
+    this.y += this.speed;
+    this.x += this.xMove;
     
     fill(256, 256, 256, 55 + this.size*200)
     stroke(256, 256, 256, 55 + this.size*200)
@@ -32,6 +33,7 @@ function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
   b1 = color(91, 41, 110); //background top colour
   b2 = color(237, 184, 242); //background bottom colour
+  canvas.id = "bgCanvas";
 }
 
 function setGradient(x, y, w, h, c1, c2, axis) {
@@ -67,8 +69,6 @@ function draw() {
     if (bin) {
       snowflakes.splice(i, 1);
     }
-    console.log(snowflakes.length)
   }
-  
 }
   
