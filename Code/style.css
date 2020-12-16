@@ -43,5 +43,13 @@ html, body {
   top:50px;
 }
 
+ #canv2 {
+  position: absolute;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  left: 50px;
+  top:50px;
+}
 
   
