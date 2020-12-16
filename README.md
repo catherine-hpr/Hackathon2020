@@ -1,4 +1,4 @@
-# Festive-p5js
+# Hackathon 2020
 
 A Christmassy Page created for Creative Programming Hackathon 2020 (BBC)
 
