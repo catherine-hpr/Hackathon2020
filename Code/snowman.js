@@ -29,6 +29,7 @@ let sketch2 = function(p) {
     p.mousePressed = function() {
       let c = p.mouseX;
       let y = p.mouseY;
+      p.strokeWeight(8);
       p.fill(255,255,255); //christmas tree green
       p.circle(p.mouseX, p.mouseY, 30);
     }
