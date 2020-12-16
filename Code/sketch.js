@@ -4,6 +4,7 @@ const xaxis = 2;
 let b1, b2, c1, c2;
 let snowflakes = [];
 let canv;
+let lights = [];
 
 class snow {
   constructor() {
@@ -28,6 +29,17 @@ class snow {
     return false;
   }
 }
+
+class lightsClass {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+    }
+    
+    lightDraw() {
+      
+    }
+  }
 
 function setup() {
   createCanvas(window.innerWidth, window.innerHeight);
@@ -57,8 +69,40 @@ function setGradient(x, y, w, h, c1, c2, axis) {
   }
 }
 
+function flicker(num) {
+  let opacity;
+  let currentdate = new Date(); 
+  if (currentdate.getSeconds() == num) {
+    opacity = 100;
+  }
+  else{
+    opacity = 256;
+  }
+  return opacity;
+}
+
+function drawLights() {
+  for (let i = 0; i < window.innerWidth; i++) {
+    if ((i % 30) == 0) {
+      let ifReturn = ((i/30)%5) == 0 ? [color(0, 256, 0), 15, 0]
+        : ((i/30)%5) == 1 ? [color(256, 0, 0), 25, 1]
+        : ((i/30)%5) == 2 ? [color(51, 256, 256), 30, 2]
+        : ((i/30)%5) == 3 ? [color(256, 256, 0), 25, 3]
+        : [color(255, 165, 0), 15, 4];
+
+      let opacity = flicker(ifReturn[2]);
+      fill(ifReturn[0], opacity)
+      stroke(ifReturn[0], opacity)
+      ellipse(i, ifReturn[1], 10, 10);
+      //circle(i, ifReturn[1], 10);
+    }
+  }
+}
+
 function draw() {
   setGradient(0, 0, window.innerWidth, window.innerHeight, b1, b2, yaxis);
+  
+  drawLights();
   
   if(Math.floor(Math.random()*20) == 10) {
     snowflakes.push(new snow());

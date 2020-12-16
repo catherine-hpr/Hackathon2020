@@ -34,5 +34,14 @@ html, body {
      margin: 50px;
  }
 
+ #canv {
+  position: absolute;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  left: 50px;
+  top:50px;
+}
+
 
   
